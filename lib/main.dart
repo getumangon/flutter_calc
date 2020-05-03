@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -13,6 +15,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   TextEditingController _controller;
+  bool darkTheme = true;
 
   void initState() {
     super.initState();
@@ -26,11 +29,22 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    bool darkTheme = true;
+    final ThemeData _themeData = Theme.of(context);
     return MaterialApp(
       title: 'Flutter Demo',
+      theme: darkTheme
+          ? ThemeData(
+              brightness: Brightness.dark,
+              primaryColor: Colors.red,
+              textSelectionColor: Colors.white,
+              buttonColor: Color.fromRGBO(2, 150, 136, 1))
+          : ThemeData(
+              brightness: Brightness.light,
+              primaryColor: Colors.red,
+              textSelectionColor: Colors.white,
+              buttonColor: Color.fromRGBO(2, 150, 136, 1)),
       home: Scaffold(
-          backgroundColor: Color.fromRGBO(40, 54, 55, 1),
+          backgroundColor: _themeData.primaryColor,
           body: SafeArea(
             child: Column(
               children: <Widget>[
@@ -39,7 +53,12 @@ class _MyAppState extends State<MyApp> {
                   child: IconButton(
                     icon: Icon(Icons.wb_sunny),
                     color: Colors.white,
-                    onPressed: () {},
+                    onPressed: () {
+                      setState(() {
+                        log("message $darkTheme");
+                        darkTheme = !darkTheme;
+                      });
+                    },
                   ),
                 ),
                 Container(
@@ -212,10 +231,6 @@ class _MyAppState extends State<MyApp> {
             ),
           )),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          primaryColorDark: Color.fromRGBO(2, 150, 136, 1),
-          textSelectionColor: Colors.white,
-          buttonColor: Color.fromRGBO(2, 150, 136, 1)),
     );
   }
 
@@ -223,7 +238,7 @@ class _MyAppState extends State<MyApp> {
     return RaisedButton(
       child: Text(text,
           style: GoogleFonts.poppins(
-              fontSize: 32, color: Color.fromRGBO(2, 150, 136, 1))),
+              fontSize: 32, color: Theme.of(context).primaryColor)),
       onPressed: onPress,
       padding: EdgeInsets.all(10),
       shape: CircleBorder(),
