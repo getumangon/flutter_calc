@@ -16,5 +16,5 @@ Dark Mode             |  Light Mode
 
 
 # Credits
-Code and Idea: [Umang Patel](https://github.com/getumangon)
+Code and Idea: [Umang Patel](https://github.com/getumangon) <br>
 Dynamic theme switch: [Antonello Galipò](https://github.com/magicleon94)
