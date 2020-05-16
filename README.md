@@ -14,8 +14,6 @@ Dark Mode             |  Light Mode
 :-------------------------:|:-------------------------:
 ![](https://github.com/getumangon/flutter_calc/blob/master/DarkMode.png)  |  ![](https://github.com/getumangon/flutter_calc/blob/master/LightMode.png)
 
-![Dark Mode](https://github.com/getumangon/flutter_calc/blob/master/DarkMode.png) ![Light Mode](https://github.com/getumangon/flutter_calc/blob/master/LightMode.png)
-
 
 # Credits
 Code and Idea: [Umang Patel](https://github.com/getumangon)
