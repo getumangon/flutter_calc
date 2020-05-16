@@ -29,6 +29,7 @@ class _CalculatorState extends State<CalculatorScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Calculator',
       theme: CustomTheme.of(context),
       home: Scaffold(
